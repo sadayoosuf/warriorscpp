@@ -1,0 +1,106 @@
+#include <iostream>
+using namespace std;
+
+struct student
+{
+    char name[50],cls;
+    int k,n,roll,mark[10],newmk,j,pos;
+    
+    void insert(){
+         cout<< "Enter the marks: " ;
+         scanf("%d",& newmk);
+    }
+    void modify(){
+         cout<<"Enter the subject no: ";
+         cin>>j;
+         cout<<"Enter the new mark: ";
+         cin>>mark[j];
+         
+    }
+    void deletem(){
+        cout<<"Enter the mark to be deleted: ";
+        cin>>pos;
+        if(pos>10)
+        {
+       cout<<"\n\n This value is out of range: ";
+        }
+       else
+       {
+       --pos;
+       for(k=pos;k<=n-1;k++)
+       {
+       mark[k]=mark[k+1];
+       }
+       }}
+};
+ 
+
+int main() 
+{   int n,i,choice;
+    student s;
+    cout << "Enter the details : " ;
+    cout << "\n Enter name: ";
+    cin >> s.name;
+    cout << "\n Enter roll number: ";
+    cin >> s.roll;
+    cout<<"\n Enter class:";
+    cin >> s.cls;
+    cout<<"\n Enter the number of subjects: ";
+    cin>>n;
+    cout<<"\n Enter the marks: ";
+    for(i=0;i<=n-1;i++)
+    {
+        cin>>s.mark[i];
+    }
+    
+    
+    cout<<"Enter 1 for Inserting mark \n Enter 2 for Modifying mark \n Enter 3 for Deleting \n Enter 4 for Displaying";
+    cout<<"\n\n Enter your choice: ";
+    cin>>choice;
+    switch (choice)
+    { 
+        case 1: s.insert();
+                cout << "\nDisplaying Information," << endl;
+                cout << "Name: " << s.name << endl;
+                cout << "Roll: " << s.roll << endl;
+                cout << "class: "<< s.cls << endl;
+                for(i=0;i<=n-1;i++)
+                {cout<<"Mark of subject"<<i<<" :"<<s.mark[i]<< endl;}
+                cout<<"Mark of subject"<<n<<" :"<<s.newmk<< endl;
+                break;
+        
+        case 2: s.modify();
+                cout << "\nDisplaying Information," << endl;
+                cout << "Name: " << s.name << endl;
+                cout << "Roll: " << s.roll << endl;
+                cout << "class: "<< s.cls << endl;
+                for(i=0;i<=n-1;i++)
+                {cout<<"Mark of subject"<<i<<" :"<<s.mark[i]<< endl;}
+                break;
+                
+        case 3: s.deletem();
+                cout << "\nDisplaying Information," << endl;
+                cout << "Name: " << s.name << endl;
+                cout << "Roll: " << s.roll << endl;
+                cout << "class: "<< s.cls << endl;
+                
+                for(s.k=0;s.k<=n-1;s.k++)
+                {cout<<"Mark of subject"<<s.k<<" :"<<s.mark[s.k]<< endl;}
+                
+                break;
+                
+        case 4 :
+                cout << "\nDisplaying Information," << endl;
+                cout << "Name: " << s.name << endl;
+                cout << "Roll: " << s.roll << endl;
+                cout << "class: "<< s.cls << endl;
+                for(i=0;i<=n-1;i++)
+                {cout<<"Mark of subject"<<i<<" :"<<s.mark[i]<< endl;}
+                break;
+        
+        default: cout<<"Oops you just entered a wrong choice";
+                
+                
+    }
+    return 0;
+}
